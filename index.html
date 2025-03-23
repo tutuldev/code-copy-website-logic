@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My W3Schools-like Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            hljs.highlightAll();
+        });
+
+        function toggleCode(button) {
+            const codeBlock = document.getElementById('codeBlock');
+            codeBlock.classList.toggle('hidden');
+            button.textContent = codeBlock.classList.contains('hidden') ? 'Show Code' : 'Hide Code';
+        }
+
+        function copyToClipboard() {
+            const codeBlock = document.getElementById('codeBlock').innerText;
+            navigator.clipboard.writeText(codeBlock).then(() => {
+                alert('Code copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy text:', err);
+            });
+        }
+    </script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+    <header class="bg-green-600 text-white text-center p-4">
+        <h1 class="text-2xl font-bold">Quick to grasp, easy to master</h1>
+        <nav>
+            <ul class="flex justify-center space-x-4 mt-2">
+                <li><a href="#" class="hover:underline">Home</a></li>
+                <li><a href="#" class="hover:underline">Tutorials</a></li>
+                <li><a href="#" class="hover:underline">Exercises</a></li>
+                <li><a href="#" class="hover:underline">References</a></li>
+                <li><a href="#" class="hover:underline">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="max-w-2xl mx-auto mt-6 bg-gray-800 p-6 rounded-lg shadow-lg">
+        <section class="mb-6">
+            <h2 class="text-xl font-semibold">Introduction</h2>
+            <p>This is a simple webpage inspired by W3Schools.</p>
+        </section>
+        
+        <section class="mb-6">
+            <h2 class="text-xl font-semibold">Topics</h2>
+            <p>Here you can learn about various web technologies.</p>
+        </section>
+
+        <section>
+            <h2 class="text-xl font-semibold">Displaying Code</h2>
+            <button class="mt-2 px-4 py-2 bg-green-400 text-black rounded hover:bg-green-500" onclick="toggleCode(this)">Hide Code</button>
+            <pre id="codeBlock" class=" bg-gray-700 p-4 rounded border border-gray-600 overflow-auto mt-2"><code class="html">&lt;div class="bar relative"&gt;
+    &lt;div class="nav-bar"&gt;
+        &lt;a href="#" class="block mb-2 lnk"&gt;tutul&lt;/a&gt;
+        &lt;a href="#" class="block mb-2 lnk"&gt;tutul&lt;/a&gt;
+        &lt;a href="#" class="block mb-2 lnk"&gt;tutul&lt;/a&gt;
+        &lt;a href="#" class="block mb-2 lnk"&gt;tutul&lt;/a&gt;
+        &lt;a href="#" class="block mb-2 lnk"&gt;tutul&lt;/a&gt;
+        &lt;a href="#" class="block mb-2 lnk"&gt;tutul&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <button class="mt-2 px-4 py-2 bg-blue-400 text-black rounded hover:bg-blue-500" onclick="copyToClipboard()">Click to Copy</button>
+        </section>
+    </main>
+
+    <footer class="bg-green-600 text-center p-4 mt-96">
+        <p>&copy; 2024 My Web Page</p>
+    </footer>
+</body>
+</html>
